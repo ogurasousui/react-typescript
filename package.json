@@ -8,13 +8,15 @@
     "test:unit": "karma start karma.conf.js",
     "test:all": "karma start karma.conf.js **/*.spec.tsx **/*.spec.ts",
     "build": "webpack",
-    "watch": "webpack --watch"
+    "watch": "webpack --watch",
+    "server": "node dev-server.js"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@types/enzyme": "^3.1.0",
     "@types/enzyme-adapter-react-16": "^1.0.0",
+    "@types/fetch-mock": "^5.12.0",
     "@types/jasmine": "^2.6.0",
     "@types/react-redux": "^5.0.10",
     "@types/react-router-dom": "^4.0.8",
@@ -24,6 +26,8 @@
     "enzyme": "^3.1.0",
     "enzyme-adapter-react-15": "^1.0.1",
     "enzyme-adapter-react-16": "^1.0.1",
+    "express": "^4.16.2",
+    "fetch-mock": "^5.13.1",
     "jasmine-core": "^2.8.0",
     "karma": "^1.7.1",
     "karma-chrome-launcher": "^2.2.0",
