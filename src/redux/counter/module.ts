@@ -32,7 +32,8 @@ export type CounterActions = IncrementAction | DecrementAction
 
 const initialState:CounterState = {num: 0}
 
-export default function reducer(state: CounterState = initialState, action: CounterActions): CounterState {
+// TODO: ここの型を正確にはどうすればよいのかコレがわからない
+export default function reducer(state: CounterState = initialState, action: any): any {
     switch (action.type) {
         case ActionNames.INC:
             return {num: state.num + action.plusAmount}
