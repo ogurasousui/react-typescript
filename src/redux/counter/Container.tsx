@@ -1,4 +1,4 @@
-import {Counter} from './counter'
+import {Counter} from './Counter'
 import {connect} from 'react-redux'
 import {Dispatch} from 'redux'
 import {decrementAmount, incrementAmount} from './module'
