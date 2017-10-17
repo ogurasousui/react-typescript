@@ -1,7 +1,8 @@
 module.exports = {
     // entry: "./src/tictac/index.tsx",
     //entry: "./src/spa/index.tsx",
-    entry: "./src/redux/index.tsx",
+    // entry: "./src/redux/index.tsx",
+    entry: "./src/fetch/index.tsx",
     output: {
         filename: "bundle.js",
         path: __dirname + "/dist"
