@@ -1,27 +1,30 @@
 import * as React from 'react'
 
-const Link = ({ active, children, onClick }: any) => {
-    if (active) {
-        return <span>{children}</span>
-    }
-
-    return (
-        <a
-            href="#"
-            onClick={e => {
-                e.preventDefault()
-                onClick()
-            }}
-        >
-            {children}
-        </a>
-    )
+interface Props {
+    active: boolean
+    children: any
+    onClick: () => {}
 }
 
-// Link.propTypes = {
-//     active: PropTypes.bool.isRequired,
-//     children: PropTypes.node.isRequired,
-//     onClick: PropTypes.func.isRequired
-// }
+export default class Link extends React.Component<Props, {}> {
+    render() {
 
-export default Link
+        console.log('@@@@ component Link', this.props);
+
+        if (this.props.active) {
+            return <span>{this.props.children}</span>
+        }
+
+        return (
+            <a
+                href="#"
+                onClick={e => {
+                    e.preventDefault()
+                    this.props.onClick()
+                }}
+            >
+                {this.props.children}
+            </a>
+        )
+    }
+}

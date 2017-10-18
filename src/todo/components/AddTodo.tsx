@@ -1,25 +1,39 @@
 import * as React from 'react'
 
 interface Props {
-    onAddClick: (text: string) => {}
+    onClickAddTodo: (value: string) => {}
 }
 
 export default class AddTodo extends React.Component<Props, {}> {
+
+    private input: any
+
     render() {
+
+        console.log('@@@@ component AddTodo', this.props);
+
         return (
             <div>
-                <input type='text' ref='input' />
-                <button onClick={e => this.handleClick(e)}>
-                    Add
-                </button>
+                <form
+                    onSubmit={e => {
+                        e.preventDefault()
+                        if (!this.input.value.trim()) {
+                            return
+                        }
+                        this.props.onClickAddTodo(this.input.value)
+                        this.input.value = ''
+                    }}
+                >
+                    <input
+                        ref={node => {
+                            this.input = node
+                        }}
+                    />
+                    <button type="submit">
+                        Add Todo
+                    </button>
+                </form>
             </div>
         )
-    }
-
-    handleClick(e: any) {
-        const node: any = this.refs.input
-        const text = node.value.trim()
-        this.props.onAddClick(text)
-        node.value = ''
     }
 }

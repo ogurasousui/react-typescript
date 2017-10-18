@@ -8,6 +8,9 @@ interface Props {
 
 export default class Todo extends React.Component<Props, {}> {
     render() {
+
+        console.log('@@@@ component Todo', this.props);
+
         return (
             <li
                 onClick={this.props.onClick}

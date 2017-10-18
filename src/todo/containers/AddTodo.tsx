@@ -1,34 +1,18 @@
-import * as React from 'react'
 import { connect } from 'react-redux'
-import { addTodo } from '../actions/index'
+import AddTodo from '../components/AddTodo'
+import {addTodo} from "../actions/index";
 
-let AddTodoFunc = ({ dispatch }: any) => {
-    let input: any
+// ownPropsは呼び出し元のタグに指定されたプロパティ
+const mapDispatchToProps = (dispatch: any, ownProps: any) => {
+    console.log('container AddTodo mapDispatchToProps', ownProps);
+    return {
+        onClickAddTodo: (value: string) => {
+            dispatch(addTodo(value))
+        }
+    }
+}
 
-    return (
-        <div>
-            <form
-                onSubmit={e => {
-                    e.preventDefault()
-                    if (!input.value.trim()) {
-                        return
-                    }
-                    dispatch(addTodo(input.value))
-                    input.value = ''
-                }}
-            >
-                <input
-                    ref={node => {
-                        input = node
-                    }}
-                />
-                <button type="submit">
-                    Add Todo
-                </button>
-            </form>
-        </div>
-    )
-};
-let AddTodo = connect()(AddTodoFunc)
-
-export default AddTodo
+export default connect(
+    null,
+    mapDispatchToProps
+)(AddTodo)

@@ -13,6 +13,7 @@ const getVisibleTodos = (todos: any, filter: any) => {
     }
 };
 
+// reducerで返したstatus
 const mapStateToProps = (state: any) => {
     return {
         todos: getVisibleTodos(state.todos, state.visibilityFilter)
@@ -27,9 +28,7 @@ const mapDispatchToProps = (dispatch: any) => {
     }
 }
 
-const VisibleTodoList = connect(
+export default connect(
     mapStateToProps,
     mapDispatchToProps
 )(TodoList)
-
-export default VisibleTodoList
