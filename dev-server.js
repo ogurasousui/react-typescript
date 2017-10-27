@@ -15,6 +15,20 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
+app.get('/api/list', (req, res) => {
+    const result = ['aaa', 'bbb', 'ccc']
+    setTimeout(() => res.json(result), 500);
+    //res.json(result)
+});
+
+app.get('/api/detail', (req, res) => {
+    const result = ['あああ', 'いいい', 'ううう']
+    const resultDetail = result[req.query.index]
+    setTimeout(() => res.json(resultDetail), 500);
+    //res.json(result)
+});
+
+
 app.listen(3000, (err) => {
     if (err) {
         console.log(err);
