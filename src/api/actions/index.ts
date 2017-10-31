@@ -1,16 +1,38 @@
 import { Action } from 'redux';
 
-export const getDetail = (index: number) => {
-    console.log('action getDetail');
+export const actionGetDetail = (data: string) => {
+    console.log('**** actionGetDetail');
     return {
         type: 'GET_DETAIL',
-        index: index
+        detail: data
     }
 }
 
-export const getList = () => {
-    console.log('action getList');
-    return {
-        type: 'GET_LIST'
+export const actionFetchDetail = (index: number) => {
+    return (dispath: any) => {
+        fetch('http://localhost:3000/api/detail?index='+index).then((response) => {
+            return response.json()
+        }).then((data) => {
+            dispath(actionGetDetail(data))
+        })
     }
+}
+
+export const actionGetList = (data: any) => {
+    console.log('**** actionGetList', data);
+    return {
+        type: 'GET_LIST',
+        list: data
+    }
+}
+
+export const actionFetchList = () => {
+    return (dispath: any) => {
+        fetch('http://localhost:3000/api/list').then((response) => {
+            return response.json()
+        }).then((data) => {
+            dispath(actionGetList(data))
+        })
+    }
+
 }
