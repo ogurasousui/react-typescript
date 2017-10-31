@@ -9,7 +9,7 @@ import {
 } from 'react-router-dom'
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
-import List from "./containers/List"
+import Main from "./components/Main"
 
 import reducers from './reducers/index'
 
@@ -21,7 +21,7 @@ let rootElement = document.getElementById('container')
 ReactDOM.render(
     <Router>
         <Provider store={store}>
-            <Route path="/" component={List} />
+            <Main />
         </Provider>
     </Router>,
     rootElement);

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Route } from 'react-router-dom'
-import ListDetail from '../containers/ListDetail'
-import Detail from "./Detail"
+import ListDetail from './ListDetail'
+import Detail from "../containers/Detail"
 
 interface Props {
     getList: () => any
@@ -19,7 +19,7 @@ export default class List extends React.Component<Props, {}> {
                 {this.props.list.map((text: string, key: number) =>
                     <ListDetail text={text} key={key} index={key}/>
                 )}
-                <Detail detail={this.props.detail} />
+                <Route path='/detail/:id' component={Detail} />
             </ul>
         )
     }

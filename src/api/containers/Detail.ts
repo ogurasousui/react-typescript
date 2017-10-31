@@ -1,9 +1,15 @@
 import { connect } from 'react-redux'
 import { actionFetchDetail } from "../actions/index";
-import ListDetail from '../components/ListDetail'
+import Detail from '../components/Detail'
 
 export default connect(
-    null, // state
+    (state: any, ownProps: any) => {
+        console.log('!!!! list props', state, ownProps);
+        // Componentsのpropsにセットされる
+        return {
+            detail: state.reducerDetail.detail
+        }
+    },
     (dispatch: any, ownProps: any) => {
         return {
             getDetail:(index: number) => {
@@ -11,4 +17,4 @@ export default connect(
             }
         }
     }
-)(ListDetail)
+)(Detail)
