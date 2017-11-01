@@ -12,7 +12,6 @@ import { Provider } from 'react-redux'
 import Main from "./components/Main"
 
 import reducers from './reducers/index'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
 let store = createStore(
     reducers,
