@@ -1,3 +1,5 @@
+/// <reference path="./typings/custom-typings.d.ts" />
+
 import * as React from "react"
 import thunk from 'redux-thunk'
 import * as ReactDOM from "react-dom"
