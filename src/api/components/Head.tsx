@@ -7,7 +7,7 @@ interface Props {
     getMenuList: () => any
     handleToggle: () => void
     drawerOpen: boolean
-    list: any[]
+    list: {path: string, title: string}[]
 }
 
 export default class Head extends React.Component<Props, {}> {
@@ -20,9 +20,13 @@ export default class Head extends React.Component<Props, {}> {
                     title="タイトルです"
                     onLeftIconButtonTouchTap={this.props.handleToggle}
                 />
-                <Drawer open={this.props.drawerOpen}>
+                <Drawer
+                    docked={false}
+                    open={this.props.drawerOpen}
+                    onRequestChange={this.props.handleToggle}
+                >
                     {this.props.list.map((data: any, key: number) =>
-                        <MenuItem key={key} onClick={this.props.handleToggle}>{data.title}</MenuItem>
+                        <MenuItem key={key}>{data.title}</MenuItem>
                     )}
                 </Drawer>
             </div>
