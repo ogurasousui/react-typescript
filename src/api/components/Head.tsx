@@ -2,6 +2,7 @@ import * as React from 'react'
 import AppBar from 'material-ui/AppBar';
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
+import { Link } from 'react-router-dom'
 
 interface Props {
     getMenuList: () => any
@@ -26,7 +27,7 @@ export default class Head extends React.Component<Props, {}> {
                     onRequestChange={this.props.handleToggle}
                 >
                     {this.props.list.map((data: any, key: number) =>
-                        <MenuItem key={key}>{data.title}</MenuItem>
+                        <MenuItem key={key} primaryText={<Link to={data.path}>{data.title}</Link>} />
                     )}
                 </Drawer>
             </div>

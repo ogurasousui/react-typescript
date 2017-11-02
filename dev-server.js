@@ -31,8 +31,8 @@ app.get('/api/detail', (req, res) => {
 app.get('/api/menu', (req, res) => {
     const result = [
         {
-            path: 'news',
-            title: 'ニュース'
+            path: '/station',
+            title: '駅データ'
         },
         {
             path: 'profile',
