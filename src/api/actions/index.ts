@@ -34,5 +34,10 @@ export const actionFetchList = () => {
             dispath(actionGetList(data))
         })
     }
+}
 
+export const actionToggleMenu = () => {
+    return  {
+        type: 'TOGGLE_MENU',
+    }
 }
