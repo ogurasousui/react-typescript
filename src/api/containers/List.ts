@@ -4,7 +4,6 @@ import List from '../components/List'
 
 export default connect(
     (state: any, ownProps: any) => {
-        console.log('!!!! list props', state, ownProps);
         // Componentsのpropsにセットされる
         return {
             list: state.reducerList.list,

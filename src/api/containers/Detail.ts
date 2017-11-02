@@ -4,7 +4,6 @@ import Detail from '../components/Detail'
 
 export default connect(
     (state: any, ownProps: any) => {
-        console.log('!!!! list props', state, ownProps);
         // Componentsのpropsにセットされる
         return {
             detail: state.reducerDetail.detail

@@ -4,13 +4,16 @@ import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 
 interface Props {
+    getMenuList: () => any
     handleToggle: () => void
     drawerOpen: boolean
+    list: any[]
 }
 
 export default class Head extends React.Component<Props, {}> {
 
     render() {
+        console.log('Head render', this.props, this.state);
         return (
             <div>
                 <AppBar
@@ -18,11 +21,15 @@ export default class Head extends React.Component<Props, {}> {
                     onLeftIconButtonTouchTap={this.props.handleToggle}
                 />
                 <Drawer open={this.props.drawerOpen}>
-                    <MenuItem onClick={this.props.handleToggle}>Menu Item</MenuItem>
-                    <MenuItem onClick={this.props.handleToggle}>Menu Item 2</MenuItem>
+                    {this.props.list.map((data: any, key: number) =>
+                        <MenuItem key={key} onClick={this.props.handleToggle}>{data.title}</MenuItem>
+                    )}
                 </Drawer>
             </div>
         )
     }
 
+    componentDidMount() {
+        this.props.getMenuList()
+    }
 }

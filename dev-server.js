@@ -28,6 +28,24 @@ app.get('/api/detail', (req, res) => {
     //res.json(result)
 });
 
+app.get('/api/menu', (req, res) => {
+    const result = [
+        {
+            path: 'news',
+            title: 'ニュース'
+        },
+        {
+            path: 'profile',
+            title: 'プロフィール'
+        },
+        {
+            path: 'friend',
+            title: 'フレンド'
+        }
+    ]
+    setTimeout(() => res.json(result), 500);
+    //res.json(result)
+});
 
 app.listen(3000, (err) => {
     if (err) {
